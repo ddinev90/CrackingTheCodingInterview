@@ -7,6 +7,7 @@ namespace ArraysAndStrings
         /// <summary>
         /// This would check if b is a permutation of a
         /// Permutation is if all symbols in b, match symbols in a.
+        /// Algorithm has complexity of O(n)
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
