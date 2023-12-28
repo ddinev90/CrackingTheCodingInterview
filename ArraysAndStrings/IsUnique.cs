@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -32,21 +33,23 @@ namespace ArraysAndStrings
             return true;
         }
         /// <summary>
-        /// Because the search in a hashset is a constant operation of O(1) and we only iterate once over the whole
-        /// string, it means that we have improved the algorithm significantly, reducing it to O(n)
+        /// Because hashtable can only contain unique elements, if we try to add a duplicate it will throw an exception and we can return false. This means that we have improved the algorithm significantly, reducing it to O(n)
         /// </summary>
         /// <param name="toVerify"></param>
         /// <returns></returns>
         public bool UniqueCheckerWithAdditionalStructure(string toVerify)
         {
-            HashSet<int> unique = new HashSet<int>();
+            Hashtable unique = new();
             for (int i = 0; i < toVerify.Length; i++)
             {
-                if (!unique.Contains(toVerify[i]))
+                try
                 {
-                    unique.Add(toVerify[i]);
+                    unique.Add(toVerify[i], toVerify[i]);
                 }
-                else { return false; }
+                catch(Exception e)
+                {
+                    return false;
+                };
             }
             return true;
         }
