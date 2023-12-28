@@ -2,7 +2,7 @@ using ArraysAndStrings;
 
 namespace ArraysAndStringsTests
 {
-    public class Tests
+    public class IsUniqueTests
     {
         private IsUnique isUnique;
         [SetUp]
